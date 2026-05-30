@@ -16,7 +16,7 @@ jobs:
       - name: Instalar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.14'
+          python-version: '3.13'
 
       - name: Instalar Poetry
         run: pip install poetry
@@ -26,3 +26,6 @@ jobs:
 
       - name: Rodar Testes
         run: poetry run pytest
+
+      - name: Build docker image
+        run: docker build -t fastapi:latest .
